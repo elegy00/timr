@@ -1,4 +1,4 @@
-import { ProjectGrid } from "./components/organisms/ProjectGrid/ProjectGrid";
+import ProjectPage from "./components/pages/ProjectPage";
 
 function App() {
   // const onTest = useCallback(async () => {
@@ -20,10 +20,7 @@ function App() {
 
   return (
     <div className="bg-gray-200 p-4 md:p-8 min-h-screen">
-      <h1 className="underline underline-offset-4 font-bold text-3xl mb-8">
-        Timr!
-      </h1>
-      <ProjectGrid />
+      <ProjectPage />
     </div>
   );
 }
