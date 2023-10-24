@@ -1,5 +1,4 @@
-import { Button } from "./components/atoms/Button/Button";
-import { Input } from "./components/atoms/Input/Input";
+import { ProjectGrid } from "./components/organisms/ProjectGrid/ProjectGrid";
 
 function App() {
   // const onTest = useCallback(async () => {
@@ -20,13 +19,11 @@ function App() {
   // }, []);
 
   return (
-    <div className="bg-gray-200 p-4 md:p-8">
-      <div className="grid grid-cols-3 gap-4">
-        <Input />
-        <span>Times</span>
-        <Button className="w-fit ">Delete</Button>
-      </div>
-      {/* <Button>Add Project</Button> */}
+    <div className="bg-gray-200 p-4 md:p-8 min-h-screen">
+      <h1 className="underline underline-offset-4 font-bold text-3xl mb-8">
+        Timr!
+      </h1>
+      <ProjectGrid />
     </div>
   );
 }
