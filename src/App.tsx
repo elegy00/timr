@@ -1,3 +1,6 @@
+import { Button } from "./components/atoms/Button/Button";
+import { Input } from "./components/atoms/Input/Input";
+
 function App() {
   // const onTest = useCallback(async () => {
   //   navigator.storage &&
@@ -16,7 +19,16 @@ function App() {
   //   console.log("2", res2);
   // }, []);
 
-  return <div className="bg-red-500">test</div>;
+  return (
+    <div className="bg-gray-200 p-4 md:p-8">
+      <div className="grid grid-cols-3 gap-4">
+        <Input />
+        <span>Times</span>
+        <Button className="w-fit ">Delete</Button>
+      </div>
+      {/* <Button>Add Project</Button> */}
+    </div>
+  );
 }
 
 export default App;
