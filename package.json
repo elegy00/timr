@@ -16,6 +16,7 @@
     "react-aria": "^3.29.1",
     "react-dom": "^18.2.0",
     "uuid": "^9.0.1",
+    "xlsx": "^0.18.5",
     "zustand": "^4.4.4"
   },
   "devDependencies": {

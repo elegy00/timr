@@ -1,4 +1,5 @@
 import { useProjectStore } from "../../store/projectStore";
+import { Exporter } from "../organisms/Exporter/Exporter";
 import { NewProjectForm } from "../organisms/NewProjectForm/NewProjectForm";
 import { ProjectGrid } from "../organisms/ProjectGrid/ProjectGrid";
 
@@ -12,6 +13,7 @@ const ProjectPage = () => {
       <ProjectGrid />
       <div className="h-12"></div>
       <NewProjectForm onProjectAdded={addProject} />
+      <Exporter />
     </>
   );
 };
