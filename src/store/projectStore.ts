@@ -2,6 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 import { create } from "zustand";
 import { Project, ProjectService } from "./types";
 
+import { persist, createJSONStorage } from "zustand/middleware";
+
 const newArrayWithItem =
   (project: Pick<Project, "id">, current: Project[]) =>
   (updateProj: (project: Project) => Project): Project[] => {
@@ -13,25 +15,47 @@ const newArrayWithItem =
     return result;
   };
 
-export const useProjectStore = create<ProjectService>((set) => ({
-  projects: [],
-  addProject: (project) =>
-    set((state) => ({
-      projects: [...state.projects, { ...project, id: uuidv4(), times: [] }],
-    })),
-  removeProject: (project) =>
-    set((state) => ({
-      projects: state.projects.filter((p) => p.id !== project.id),
-    })),
-  addTime: (project, time) =>
-    set((state) => ({
-      projects: newArrayWithItem(
-        project,
-        state.projects
-      )((old) => {
-        old.times.push(time);
-        old.times.sort();
-        return old;
+export const jsonReviver = (key: string, value: unknown): unknown => {
+  if (key === "times" && Array.isArray(value)) {
+    return value.map((v) => {
+      return new Date(v);
+    });
+  }
+  return value;
+};
+
+export const useProjectStore = create<ProjectService>()(
+  persist(
+    (set, get) => ({
+      projects: [],
+      addProject: (project) =>
+        set(() => ({
+          projects: [
+            ...get().projects,
+            { ...project, id: uuidv4(), times: [] },
+          ],
+        })),
+      removeProject: (project) =>
+        set(() => ({
+          projects: get().projects.filter((p) => p.id !== project.id),
+        })),
+      addTime: (project, time) =>
+        set(() => ({
+          projects: newArrayWithItem(
+            project,
+            get().projects
+          )((old) => {
+            old.times.push(time);
+            old.times.sort();
+            return old;
+          }),
+        })),
+    }),
+    {
+      name: "asdf",
+      storage: createJSONStorage(() => sessionStorage, {
+        reviver: jsonReviver,
       }),
-    })),
-}));
+    }
+  )
+);
