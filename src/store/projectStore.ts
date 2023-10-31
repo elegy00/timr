@@ -53,7 +53,7 @@ export const useProjectStore = create<ProjectService>()(
     }),
     {
       name: "asdf",
-      storage: createJSONStorage(() => sessionStorage, {
+      storage: createJSONStorage(() => localStorage, {
         reviver: jsonReviver,
       }),
     }
