@@ -1,15 +1,23 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, RefObject } from "react";
 import { Styleable } from "../../../types/styleable";
 import classNames from "classnames";
+import React from "react";
+import { AriaButtonOptions, useButton } from "react-aria";
 
-type Props = PropsWithChildren<React.ButtonHTMLAttributes<HTMLButtonElement>> &
-  Styleable;
+type Props = PropsWithChildren<AriaButtonOptions<"button">> &
+  Styleable & {
+    buttonRef?: RefObject<HTMLButtonElement>;
+  };
 
-const Button = (props: Props) => {
-  const { children, className, ...rest } = props;
+const Button: React.FC<Props> = (props) => {
+  const { className, buttonRef, children, ...rest } = props;
+  const fallbackRef = React.useRef(null);
+  const ref = buttonRef ?? fallbackRef;
+  const { buttonProps } = useButton(rest, ref);
   return (
     <button
-      {...rest}
+      ref={ref}
+      {...buttonProps}
       className={classNames(
         "relative flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300",
         className

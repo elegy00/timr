@@ -1851,6 +1851,14 @@
     "@react-types/shared" "^3.21.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/data@^3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@react-stately/data/-/data-3.10.3.tgz#4cdbb0f29489e6f74d2ae7ae032930336695eaa0"
+  integrity sha512-cC9mxCZU4N9GbdOB4g2/J8+W+860GvBd874to0ObSc/XOR4VbuIsxAFIabW5UwmJV+XaqqK4TUBG0C6YScXeWQ==
+  dependencies:
+    "@react-types/shared" "^3.21.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/datepicker@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.8.0.tgz#f87eefb4c5dec937b9d5eb101dd4407457ecd0e7"
@@ -4418,6 +4426,34 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-stately@^3.27.1:
+  version "3.27.1"
+  resolved "https://registry.yarnpkg.com/react-stately/-/react-stately-3.27.1.tgz#b24992bd72da1b1632bf4f4232d87ce6913a19bd"
+  integrity sha512-qHhivqOpyATaWwoj3xl3IqqoEnib+dsl2vYlOz92CT5Ntm6lprF7KO+LkxdkS0SnUckdGewFM1NjCmbK7wPJgw==
+  dependencies:
+    "@react-stately/calendar" "^3.4.1"
+    "@react-stately/checkbox" "^3.5.1"
+    "@react-stately/collections" "^3.10.2"
+    "@react-stately/combobox" "^3.7.1"
+    "@react-stately/data" "^3.10.3"
+    "@react-stately/datepicker" "^3.8.0"
+    "@react-stately/dnd" "^3.2.5"
+    "@react-stately/list" "^3.10.0"
+    "@react-stately/menu" "^3.5.6"
+    "@react-stately/numberfield" "^3.6.2"
+    "@react-stately/overlays" "^3.6.3"
+    "@react-stately/radio" "^3.9.1"
+    "@react-stately/searchfield" "^3.4.6"
+    "@react-stately/select" "^3.5.5"
+    "@react-stately/selection" "^3.14.0"
+    "@react-stately/slider" "^3.4.4"
+    "@react-stately/table" "^3.11.2"
+    "@react-stately/tabs" "^3.6.1"
+    "@react-stately/toggle" "^3.6.3"
+    "@react-stately/tooltip" "^3.4.5"
+    "@react-stately/tree" "^3.7.3"
+    "@react-types/shared" "^3.21.0"
 
 react@^18.2.0:
   version "18.2.0"
